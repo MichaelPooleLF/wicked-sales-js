@@ -1,5 +1,5 @@
 import React from 'react';
-// import ProductListItems from './product-list-items';
+import ProductListItems from './product-list-items';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -22,9 +22,22 @@ class ProductList extends React.Component {
   }
 
   render() {
+    const listItems = this.state.products.map(element => {
+      return (
+        <ProductListItems key={element.productId}
+          image={element.image}
+          name={element.name}
+          price={element.price}
+          shortDescription={element.shortDescription} />
+      );
+    });
+
     return (
-      <>
-      </>
+      <div className="container">
+        <div className="row">
+          {listItems}
+        </div>
+      </div>
     );
   }
 }
