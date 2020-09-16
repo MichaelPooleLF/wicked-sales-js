@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.store-name {
+  text-shadow: 0 0 20px #985FBA;
+  color: #985FBA;
+}
+
+.card img {
+  object-fit: contain;
+}
+
+.card .image {
+  height: 250px;
+  display: flex;
+}
