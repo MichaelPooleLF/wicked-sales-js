@@ -34,6 +34,32 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products/:productId', (req, res, next) => {
+  const productId = parseInt(req.params.productId, 10);
+  if (!Number.isInteger(productId) || productId <= 0) {
+    return res.status(400).json({
+      error: 'productId munst be a positive integer'
+    });
+  }
+  const sql = `
+    select *
+      from "products"
+     where "productId" = $1
+  `;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        next();
+      } else {
+        res.status(200).json(result.rows[0]);
+      }
+    })
+    .catch(err => { next(err); });
+});
+
+// serverside error handling
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
