@@ -1,6 +1,6 @@
 header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -14,11 +14,25 @@ header {
   color: #985FBA;
 }
 
-.card img {
+.card {
+  cursor: pointer;
+}
+
+.card img, .details img {
   object-fit: contain;
 }
 
 .card .image {
   height: 250px;
   display: flex;
+}
+
+.details img{
+  width: 100%;
+}
+
+.back {
+  position: absolute;
+  margin: 0.75rem 0.5rem;
+  cursor: pointer;
 }
