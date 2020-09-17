@@ -41,7 +41,7 @@ export default class App extends React.Component {
       return (
         <>
           <Header />
-          <ProductDetails productId={this.state.view.params}
+          <ProductDetails productId={this.state.view.params.product}
             setView={this.setView} />
         </>
       );
