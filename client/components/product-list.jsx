@@ -24,7 +24,8 @@ class ProductList extends React.Component {
       .then(result => result.json())
       .then(data => this.setState({
         products: data
-      }));
+      }))
+      .catch(err => console.error(err));
   }
 
   render() {

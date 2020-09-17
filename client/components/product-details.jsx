@@ -23,9 +23,7 @@ class ProductDetails extends React.Component {
           product: data
         });
       })
-      .catch(err => {
-        console.error(err);
-      });
+      .catch(err => console.error(err));
   }
 
   render() {
