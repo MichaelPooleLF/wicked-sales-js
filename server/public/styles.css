@@ -14,6 +14,10 @@ header {
   color: #985FBA;
 }
 
+.card {
+  cursor: pointer;
+}
+
 .card img {
   object-fit: contain;
 }
