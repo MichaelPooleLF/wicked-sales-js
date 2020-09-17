@@ -1,10 +1,10 @@
 header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
-.logo {
+.logo{
   width: 50px;
   height: auto;
 }
@@ -12,6 +12,11 @@ header {
 .store-name {
   text-shadow: 0 0 20px #985FBA;
   color: #985FBA;
+}
+
+.cart {
+  font-size: 2rem;
+  color: orange;
 }
 
 .card {

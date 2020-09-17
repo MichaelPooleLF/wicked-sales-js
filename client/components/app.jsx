@@ -33,26 +33,18 @@ export default class App extends React.Component {
     this.getCartItems();
   }
 
-  // componentDidMount() {
-  //   fetch('/api/health-check')
-  //     .then(res => res.json())
-  //     .then(data => this.setState({ message: data.message || data.error }))
-  //     .catch(err => this.setState({ message: err.message }))
-  //     .finally(() => this.setState({ isLoading: false }));
-  // }
-
   render() {
     if (this.state.view.name === 'catalog') {
       return (
         <>
-          <Header />
+          <Header cartItemCount={this.state.cart.length} />
           <ProductList setView={this.setView} />
         </>
       );
     } else {
       return (
         <>
-          <Header />
+          <Header cartItemCount={this.state.cart.length} />
           <ProductDetails productId={this.state.view.params.product}
             setView={this.setView} />
         </>
