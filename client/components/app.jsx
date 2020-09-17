@@ -10,9 +10,18 @@ export default class App extends React.Component {
       view: {
         name: 'catalog',
         params: {}
-      }
+      },
+      cart: []
     };
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+  }
+
+  getCartItems() {
+    fetch('/api/cart')
+      .then(res => res.json())
+      .then(data => this.setState({ cart: data }))
+      .catch(err => console.error(err));
   }
 
   setView(name, params) {
@@ -22,27 +31,43 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/health-check')
-      .then(res => res.json())
-      .then(data => this.setState({ message: data.message || data.error }))
-      .catch(err => this.setState({ message: err.message }))
-      .finally(() => this.setState({ isLoading: false }));
+    this.getCartItems();
+  }
+
+  addToCart(product) {
+    const newArray = this.state.cart.map(element => ({ ...element }));
+    const init = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    };
+    fetch('api/cart', init)
+      .then(result => result.json())
+      .then(data => {
+        newArray.push(data);
+        return newArray;
+      })
+      .then(array => this.setState({ cart: array }))
+      .catch(err => console.error(err));
   }
 
   render() {
     if (this.state.view.name === 'catalog') {
       return (
         <>
-          <Header />
+          <Header cartItemCount={this.state.cart.length} />
           <ProductList setView={this.setView} />
         </>
       );
     } else {
       return (
         <>
-          <Header />
+          <Header cartItemCount={this.state.cart.length} />
           <ProductDetails productId={this.state.view.params.product}
-            setView={this.setView} />
+            setView={this.setView}
+            addToCart={this.addToCart}/>
         </>
       );
     }
