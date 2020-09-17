@@ -6,7 +6,12 @@ import ProductDetails from './product-details';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      view: {
+        name: 'catalog',
+        params: {}
+      }
+    };
   }
 
   componentDidMount() {
