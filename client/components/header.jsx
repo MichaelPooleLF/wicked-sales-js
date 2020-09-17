@@ -8,7 +8,7 @@ function Header(props) {
         <img className="logo ml-3" src="./images/cauldron-icon.png" alt="cauldron" />
       </div>
       <div className="cart d-flex align-items-center">
-        <p className="mb-0">{props.cartItemCount}</p>
+        <p className="mb-0">{props.cartItemCount} items</p>
         <i className="cart fa fa-shopping-cart ml-2"></i>
       </div>
     </header>

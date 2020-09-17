@@ -33,6 +33,32 @@ export default class App extends React.Component {
     this.getCartItems();
   }
 
+  addToCart(product) {
+    const newArray = this.state.cart.map(element => ({ ...element }));
+    const init = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    };
+    fetch('api/cart', init)
+      .then(result => {
+        // console.log(result);
+        result.json();
+      })
+      .then(data => {
+        newArray.push(data);
+        // console.log(newArray);
+        return newArray;
+      })
+      .then(array => this.setState(
+        { cart: array }
+        // console.log(this.state.cart)
+      ))
+      .catch(err => console.error(err));
+  }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (

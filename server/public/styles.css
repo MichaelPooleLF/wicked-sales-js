@@ -15,8 +15,12 @@ header {
 }
 
 .cart {
-  font-size: 2rem;
   color: orange;
+  font-size: 2rem;
+}
+
+.cart p {
+  font-size: 1.5rem;
 }
 
 .card {
