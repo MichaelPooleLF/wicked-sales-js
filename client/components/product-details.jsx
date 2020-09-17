@@ -7,15 +7,19 @@ class ProductDetails extends React.Component {
       product: null
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleAddClick = this.handleAddClick.bind(this);
   }
 
   handleClick() {
     this.props.setView('catalog', { params: {} });
   }
 
+  handleAddClick() {
+    this.props.addToCart(this.state.product);
+  }
+
   componentDidMount() {
     const productId = this.props.productId;
-    // const productId = 1;
     fetch(`/api/products/${productId}`)
       .then(result => result.json())
       .then(data => {
@@ -46,6 +50,7 @@ class ProductDetails extends React.Component {
                 <h1>{this.state.product.name}</h1>
                 <h3>${productPrice}</h3>
                 <p>{this.state.product.shortDescription}</p>
+                <button onClick={this.handleAddClick} className="btn btn-primary">Add to Cart</button>
               </div>
             </div>
             <div className="row">

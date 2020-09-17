@@ -14,6 +14,7 @@ export default class App extends React.Component {
       cart: []
     };
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   getCartItems() {
@@ -43,19 +44,12 @@ export default class App extends React.Component {
       body: JSON.stringify(product)
     };
     fetch('api/cart', init)
-      .then(result => {
-        // console.log(result);
-        result.json();
-      })
+      .then(result => result.json())
       .then(data => {
         newArray.push(data);
-        // console.log(newArray);
         return newArray;
       })
-      .then(array => this.setState(
-        { cart: array }
-        // console.log(this.state.cart)
-      ))
+      .then(array => this.setState({ cart: array }))
       .catch(err => console.error(err));
   }
 
@@ -72,7 +66,8 @@ export default class App extends React.Component {
         <>
           <Header cartItemCount={this.state.cart.length} />
           <ProductDetails productId={this.state.view.params.product}
-            setView={this.setView} />
+            setView={this.setView}
+            addToCart={this.addToCart}/>
         </>
       );
     }
