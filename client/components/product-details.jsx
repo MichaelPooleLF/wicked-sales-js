@@ -38,22 +38,20 @@ class ProductDetails extends React.Component {
 
       return (
         <>
-          <div className="d-flex justify-content-center">
-            <button className="m-auto" onClick={this.handleClick}>Back to Catalog</button>
-          </div>
-          <div className="container bg-light">
+          <div className="container bg-light px-4 mt-5">
             <div className="row mb-3">
-              <div className="col-4 details mt-3">
+              <p onClick={this.handleClick} className="text-secondary back">{'< back to catalog'}</p>
+              <div className="col-4 details mt-5">
                 <img src={this.state.product.image}/>
               </div>
-              <div className="col-8 mt-3">
+              <div className="col-8 mt-5">
                 <h1>{this.state.product.name}</h1>
                 <h3>${productPrice}</h3>
                 <p>{this.state.product.shortDescription}</p>
               </div>
             </div>
-            <div className="row mb-3">
-              <div className="col">
+            <div className="row">
+              <div className="col mb-3">
                 <p>{this.state.product.longDescription}</p>
               </div>
             </div>

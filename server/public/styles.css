@@ -18,7 +18,7 @@ header {
   cursor: pointer;
 }
 
-.card img {
+.card img, .details img {
   object-fit: contain;
 }
 
@@ -29,4 +29,10 @@ header {
 
 .details img{
   width: 100%;
+}
+
+.back {
+  position: absolute;
+  margin: 0.75rem 0.5rem;
+  cursor: pointer;
 }
