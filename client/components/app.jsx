@@ -54,6 +54,23 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  // placeOrder(order) {
+  //   const orderBody = {
+  //     name: order.name,
+  //     creditCard: order.creditCard,
+  //     shippingAddress: order.shippingAddress
+  //   };
+  //   const init = {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(orderBody)
+  //   };
+  //   // fetch('api/orders', init)
+  //   //   .then();
+  // }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (
