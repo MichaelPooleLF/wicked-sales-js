@@ -50,3 +50,13 @@ header {
 .orange {
   color: orange;
 }
+
+.border-orange {
+  border-color: orange;
+  font-size: 1.5rem;
+}
+
+.border-orange:hover {
+  color: black;
+  background-color: orange;
+}
