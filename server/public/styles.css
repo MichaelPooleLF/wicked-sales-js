@@ -17,13 +17,14 @@ header {
 .cart {
   color: orange;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .cart p {
   font-size: 1.5rem;
 }
 
-.card {
+.pointer {
   cursor: pointer;
 }
 
@@ -44,4 +45,8 @@ header {
   position: absolute;
   margin: 0.75rem 0.5rem;
   cursor: pointer;
+}
+
+.orange {
+  color: orange;
 }
