@@ -81,11 +81,6 @@ app.get('/api/cart', (req, res, next) => {
       })
       .catch(err => next(err));
   }
-  // db.query('select * from "carts"')
-  //   .then(result => {
-  //     res.json(result.rows);
-  //   })
-  //   .catch(err => next(err));
 });
 
 app.post('/api/cart', (req, res, next) => {
@@ -160,6 +155,40 @@ app.post('/api/cart', (req, res, next) => {
         .catch(err => next(err));
     })
     .catch(err => next(err));
+});
+
+app.post('/api/orders', (req, res, next) => {
+  const cartId = req.session.cartId;
+  const { name, creditCard, shippingAddress } = req.body;
+  if (!cartId) {
+    res.status(400).json({
+      error: '"cartId" does not exist. Please add items to the cart'
+    });
+  } else if (!name || !creditCard || !shippingAddress) {
+    res.status(400).json({
+      error: 'please send a name, creditCard, and shippingAddress in the body'
+    });
+  } else {
+    const sql = `
+      insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+        values ($1, $2, $3, $4)
+        returning *
+    `;
+    const params = [cartId, name, creditCard, shippingAddress];
+    db.query(sql, params)
+      .then(result => {
+        const order = result.rows[0];
+        if (order.cartId) {
+          delete req.session.cartId;
+          delete order.cartId;
+          return order;
+        }
+      })
+      .then(result => {
+        res.status(200).json(result);
+      })
+      .catch(err => next(err));
+  }
 });
 
 // serverside error handling
