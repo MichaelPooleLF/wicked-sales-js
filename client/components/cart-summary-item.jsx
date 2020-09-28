@@ -45,7 +45,10 @@ function CartSummaryItem(props) {
     return (
       <>
         <div className="container">
-          <div className="row mt-5 mb-2">
+          <div className="row mt-5">
+            <p onClick={props.handleClick} className="offset-1 orange pointer">{'< back to catalog'}</p>
+          </div>
+          <div className="row my-2">
             <h1 className="offset-1 orange">
               My Cart
             </h1>

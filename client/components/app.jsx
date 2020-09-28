@@ -58,7 +58,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <>
-          <Header handleClick={() => this.setView('cart', { cart: this.state.cart })} cartItemCount={this.state.cart.length} />
+          <Header handleClick={() => this.setView('cart', { params: {} })} cartItemCount={this.state.cart.length} />
           <ProductList setView={this.setView} />
         </>
       );
@@ -75,7 +75,7 @@ export default class App extends React.Component {
       return (
         <>
           <Header cartItemCount={this.state.cart.length} />
-          <CartSummaryItem cart={this.state.cart}/>
+          <CartSummaryItem cart={this.state.cart} handleClick={() => this.setView('catalog', { params: {} })}/>
         </>
       );
     }
