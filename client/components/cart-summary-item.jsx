@@ -34,6 +34,9 @@ function CartSummaryItem(props) {
         <div className="row justify-content-center">
           <h1 className="orange mt-5">No items in cart.</h1>
         </div>
+        <div className="row justify-content-center mt-5">
+          <p onClick={() => props.handleClick('catalog', { params: {} })} className="orange pointer">{'< back to catalog'}</p>
+        </div>
       </div>
     );
   } else {

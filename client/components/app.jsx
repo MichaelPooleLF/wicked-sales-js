@@ -10,13 +10,14 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: {
-        name: '',
+        name: 'catalog',
         params: {}
       },
       cart: []
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   getCartItems() {
@@ -64,13 +65,15 @@ export default class App extends React.Component {
       body: JSON.stringify(order)
     };
     fetch('api/orders', init)
-      .then(() => this.setState({
-        view: {
-          name: 'catalog',
-          params: {}
-        },
-        cart: []
-      }))
+      .then(() => {
+        this.setState({
+          view: {
+            name: 'catalog',
+            params: {}
+          },
+          cart: []
+        });
+      })
       .catch(err => console.error(err));
   }
 
@@ -102,7 +105,7 @@ export default class App extends React.Component {
       return (
         <>
           <Header handleClick={() => this.setView('cart', { params: {} })} cartItemCount={this.state.cart.length}/>
-          <CheckoutForm />
+          <CheckoutForm placeOrder={this.placeOrder} cart={this.state.cart}/>
         </>
       );
     }
