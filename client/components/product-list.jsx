@@ -18,7 +18,9 @@ class ProductList extends React.Component {
     this.props.setView('details', { product: productId });
   }
 
-  showProducts() {
+  showProducts(event) {
+    const body = event.target.closest('body');
+    body.classList.remove('overflow-hidden');
     localStorage.setItem('visited', true);
     this.setState({
       visited: true
