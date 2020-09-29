@@ -47,7 +47,7 @@ function CartSummaryItem(props) {
         <div className="container">
           <div className="row mt-5 justify-content-center">
             <div className="col-10 mt-2">
-              <p onClick={props.handleClick} className="orange pointer">{'< back to catalog'}</p>
+              <p onClick={() => props.handleClick('catalog', { params: {} })} className="orange pointer">{'< back to catalog'}</p>
             </div>
             <div className="col-10 my-2">
               <h1 className="orange">
@@ -61,7 +61,7 @@ function CartSummaryItem(props) {
               <h2 className="orange">
                 {`Total: $${formattedTotalPrice}`}
               </h2>
-              <button type="button" className="btn orange border-orange">Checkout</button>
+              <button onClick={() => props.handleClick('checkout', { params: {} })} type="button" className="btn orange border-orange">Checkout</button>
             </div>
           </div>
         </div>

@@ -95,7 +95,7 @@ export default class App extends React.Component {
       return (
         <>
           <Header cartItemCount={this.state.cart.length} />
-          <CartSummaryItem cart={this.state.cart} handleClick={() => this.setView('catalog', { params: {} })}/>
+          <CartSummaryItem cart={this.state.cart} handleClick={this.setView}/>
         </>
       );
     } else {
