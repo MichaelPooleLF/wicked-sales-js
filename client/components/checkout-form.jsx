@@ -47,7 +47,10 @@ class CheckoutForm extends React.Component {
             <h1 className="orange">Checkout</h1>
             <h4 className="orange mt-3">{`Order Total: $${this.calcTotal()}`}</h4>
           </div>
-          <form className="col-10 offset-1 mt-5" onSubmit={this.handleSubmit}>
+          <div className="col-10 offset-1 mt-3">
+            <h5 className="white text-center"><em>Reminder: Don&apos;t put personal information on this site!</em></h5>
+          </div>
+          <form className="col-10 offset-1 mt-3" onSubmit={this.handleSubmit}>
             <div className="form-group mt-3">
               <label htmlFor="name" className="orange"><h4 className="mb-0">Name</h4></label>
               <input type="text" className="form-control" id="name" name="name" onChange={this.handleChange}/>

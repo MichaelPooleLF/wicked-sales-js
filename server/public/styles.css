@@ -82,3 +82,7 @@ header {
   border: 1px #985FBA solid;
   box-shadow: 0 0 100px #985FBA;
 }
+
+.white {
+  color: white;
+}
