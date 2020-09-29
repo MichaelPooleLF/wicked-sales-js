@@ -12,7 +12,7 @@ function CartSummaryItem(props) {
     const total = `${beforeDecimal}.${afterDecimal}`;
     const productPrice = parseFloat(total).toFixed(2);
     cart.push(
-      <div className="col-10 card my-3" key={element.cartItemId}>
+      <div className="col-12 card my-3" key={element.cartItemId}>
         <div className="row no-gutters my-3">
           <div className="col-4">
             <img className="card-img image" src={element.image} alt="" />
@@ -34,6 +34,9 @@ function CartSummaryItem(props) {
         <div className="row justify-content-center">
           <h1 className="orange mt-5">No items in cart.</h1>
         </div>
+        <div className="row justify-content-center mt-5">
+          <p onClick={() => props.handleClick('catalog', { params: {} })} className="orange pointer">{'< back to catalog'}</p>
+        </div>
       </div>
     );
   } else {
@@ -45,22 +48,23 @@ function CartSummaryItem(props) {
     return (
       <>
         <div className="container">
-          <div className="row mt-5">
-            <p onClick={props.handleClick} className="offset-1 orange pointer">{'< back to catalog'}</p>
-          </div>
-          <div className="row my-2">
-            <h1 className="offset-1 orange">
-              My Cart
-            </h1>
-          </div>
-          <div className="row justify-content-center">
-            {cart}
-          </div>
-          <div className="row">
-            <div className="offset-1 orange">
-              <h1 className="mt-2 mb-5">
-                {`Total: $${formattedTotalPrice}`}
+          <div className="row mt-5 justify-content-center">
+            <div className="col-10 mt-2">
+              <p onClick={() => props.handleClick('catalog', { params: {} })} className="orange pointer">{'< back to catalog'}</p>
+            </div>
+            <div className="col-10 my-2">
+              <h1 className="orange">
+                My Cart
               </h1>
+            </div>
+            <div className="col-10 justify-content-center">
+              {cart}
+            </div>
+            <div className="col-10 my-3 d-flex justify-content-between align-items-center">
+              <h2 className="orange">
+                {`Total: $${formattedTotalPrice}`}
+              </h2>
+              <button onClick={() => props.handleClick('checkout', { params: {} })} type="button" className="btn orange border-orange">Checkout</button>
             </div>
           </div>
         </div>

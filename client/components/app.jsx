@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummaryItem from './cart-summary-item';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   getCartItems() {
@@ -54,6 +56,27 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  placeOrder(order) {
+    const init = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(order)
+    };
+    fetch('api/orders', init)
+      .then(() => {
+        this.setState({
+          view: {
+            name: 'catalog',
+            params: {}
+          },
+          cart: []
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (
@@ -65,17 +88,24 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'details') {
       return (
         <>
-          <Header cartItemCount={this.state.cart.length} />
+          <Header handleClick={() => this.setView('cart', { params: {} })} cartItemCount={this.state.cart.length} />
           <ProductDetails productId={this.state.view.params.product}
             setView={this.setView}
             addToCart={this.addToCart}/>
         </>
       );
-    } else {
+    } else if (this.state.view.name === 'cart') {
       return (
         <>
           <Header cartItemCount={this.state.cart.length} />
-          <CartSummaryItem cart={this.state.cart} handleClick={() => this.setView('catalog', { params: {} })}/>
+          <CartSummaryItem cart={this.state.cart} handleClick={this.setView}/>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Header handleClick={() => this.setView('cart', { params: {} })} cartItemCount={this.state.cart.length}/>
+          <CheckoutForm placeOrder={this.placeOrder} cart={this.state.cart}/>
         </>
       );
     }
