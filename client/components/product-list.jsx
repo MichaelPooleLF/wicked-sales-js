@@ -60,11 +60,9 @@ class ProductList extends React.Component {
             <div className="notice-content container">
               <div className="row justify-content-center align-items-center">
                 <div className="col-8 d-flex flex-wrap justify-content-center">
-                  <h1 className="text-center">
-                    Please Note:
-                    <br />
-                    No real purchases will be made on this site.
-                  </h1>
+                  <h1 className="text-center">Please Note:</h1>
+                  <h1 className="text-center">This site is a demo.</h1>
+                  <h1 className="text-center">No real purchases will be made.</h1>
                   <button onClick={this.showProducts} type="button" className="btn border-orange orange mt-3">Got It!</button>
                 </div>
               </div>
