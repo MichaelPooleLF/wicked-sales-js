@@ -17,7 +17,7 @@ function CartSummaryItem(props) {
           <div className="col-md-12 col-lg-4">
             <img className="card-img image" src={element.image} alt="" />
           </div>
-          <div className="col-8">
+          <div className="col-md-12 col-lg-8">
             <div className="card-body">
               <h5 className="card-title">{element.name}</h5>
               <p className="card-text">{`$${productPrice}`}</p>
@@ -60,7 +60,7 @@ function CartSummaryItem(props) {
             <div className="col-10 justify-content-center">
               {cart}
             </div>
-            <div className="col-10 my-3 d-flex justify-content-between align-items-center">
+            <div className="col-md-12 col-lg-10 my-3 d-flex justify-content-between align-items-center">
               <h2 className="orange">
                 {`Total: $${formattedTotalPrice}`}
               </h2>
