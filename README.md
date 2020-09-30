@@ -39,3 +39,9 @@ git clone https://github.com/MichaelPooleLF/wicked-sales-js
 ```
 npm install
 ```
+3. Start the server.
+```
+npm run dev
+```
+4. Visit localhost:3000 in your web browser
+5. Open the file in a code editor and start coding!
