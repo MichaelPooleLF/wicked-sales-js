@@ -9,7 +9,7 @@ function ProductListItem(props) {
 
   return (
     <div onClick={props.handleClick} className="col-4 mt-5 card-group" id={props.product.productId}>
-      <div className="card pointer">
+      <div className="card pointer bg-shadow">
         <div className="image">
           <img src={props.product.image} className="card-img-top"/>
         </div>
