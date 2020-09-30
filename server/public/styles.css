@@ -28,6 +28,7 @@ header {
   color: orange;
   font-size: 2rem;
   cursor: pointer;
+  justify-content: flex-end;
 }
 
 .cart p {
@@ -40,6 +41,7 @@ header {
 
 .card img, .details img {
   object-fit: cover;
+  object-position: center;
 }
 
 .card .image {
@@ -110,4 +112,20 @@ header {
 
 .bg-shadow {
   box-shadow: 0 0 20px #985FBA;
+}
+
+@media only screen and (max-width: 750px) {
+  .cart {
+    justify-content: center;
+  }
+
+  .justify-center-sm {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  header img {
+    display: none;
+  }
 }

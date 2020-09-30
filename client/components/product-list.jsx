@@ -69,7 +69,7 @@ class ProductList extends React.Component {
             </div>
           </div>
           <div className="container">
-            <div className="row">
+            <div className="row small-row">
               {listItems}
             </div>
           </div>
@@ -78,7 +78,7 @@ class ProductList extends React.Component {
     } else if (this.state.visited) {
       return (
         <div className="container">
-          <div className="row">
+          <div className="row small-row">
             {listItems}
           </div>
         </div>
