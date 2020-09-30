@@ -40,22 +40,24 @@ class ProductDetails extends React.Component {
 
       return (
         <>
-          <div className="container bg-light px-4 mt-5">
-            <div className="row mb-3">
-              <p onClick={this.handleClick} className="text-secondary back">{'< back to catalog'}</p>
-              <div className="col-md-12 col-lg-4 details mt-5">
-                <img src={this.state.product.image}/>
+          <div className="px-3">
+            <div className="container bg-light px-4 my-5">
+              <div className="row mb-3">
+                <p onClick={this.handleClick} className="text-secondary back">{'< back to catalog'}</p>
+                <div className="col-md-12 col-lg-4 details mt-5">
+                  <img src={this.state.product.image}/>
+                </div>
+                <div className="col-sm-8 mt-5">
+                  <h1>{this.state.product.name}</h1>
+                  <h3>${productPrice}</h3>
+                  <p>{this.state.product.shortDescription}</p>
+                  <button onClick={this.handleAddClick} className="btn bg-orange">Add to Cart</button>
+                </div>
               </div>
-              <div className="col-sm-8 mt-5">
-                <h1>{this.state.product.name}</h1>
-                <h3>${productPrice}</h3>
-                <p>{this.state.product.shortDescription}</p>
-                <button onClick={this.handleAddClick} className="btn bg-orange">Add to Cart</button>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col mb-3">
-                <p>{this.state.product.longDescription}</p>
+              <div className="row">
+                <div className="col mb-3">
+                  <p>{this.state.product.longDescription}</p>
+                </div>
               </div>
             </div>
           </div>

@@ -62,9 +62,9 @@ class ProductList extends React.Component {
       return (
         <>
           <div className="notice d-flex justify-content-center align-items-center">
-            <div className="notice-content container">
-              <div className="row justify-content-center align-items-center">
-                <div className="col-8 d-flex flex-wrap justify-content-center">
+            <div className="notice-content container justify-content-center">
+              <div className="row w-100 justify-content-center align-items-center">
+                <div className="col-md-12 col-lg-8 d-flex flex-wrap justify-content-center align-items-center flex-column">
                   <h1 className="text-center">Please Note:</h1>
                   <h1 className="text-center">This site is a demo.</h1>
                   <h1 className="text-center">No real purchases will be made.</h1>
@@ -82,8 +82,8 @@ class ProductList extends React.Component {
       );
     } else if (this.state.visited) {
       return (
-        <div className="container">
-          <div className="row small-row">
+        <div className="container mb-5">
+          <div className="row">
             {listItems}
           </div>
         </div>
