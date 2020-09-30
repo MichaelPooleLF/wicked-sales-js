@@ -50,7 +50,7 @@ class ProductDetails extends React.Component {
                 <h1>{this.state.product.name}</h1>
                 <h3>${productPrice}</h3>
                 <p>{this.state.product.shortDescription}</p>
-                <button onClick={this.handleAddClick} className="btn btn-primary">Add to Cart</button>
+                <button onClick={this.handleAddClick} className="btn bg-orange">Add to Cart</button>
               </div>
             </div>
             <div className="row">
