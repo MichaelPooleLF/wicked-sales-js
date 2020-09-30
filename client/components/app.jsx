@@ -105,7 +105,7 @@ export default class App extends React.Component {
       return (
         <>
           <Header handleClick={() => this.setView('cart', { params: {} })} cartItemCount={this.state.cart.length}/>
-          <CheckoutForm placeOrder={this.placeOrder} cart={this.state.cart}/>
+          <CheckoutForm placeOrder={this.placeOrder} cart={this.state.cart} handleClick={() => this.setView('catalog', { params: {} })}/>
         </>
       );
     }

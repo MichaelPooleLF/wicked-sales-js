@@ -64,7 +64,7 @@ class CheckoutForm extends React.Component {
               <textarea className="form-control" name="shippingAddress" id="shippingAddress" rows="5" onChange={this.handleChange}></textarea>
             </div>
             <div className="form-group d-flex justify-content-between align-items-center mt-5">
-              <p className="pointer orange">{'< Continue Shopping'}</p>
+              <p onClick={this.props.handleClick} className="pointer orange">{'< Continue Shopping'}</p>
               <button type="submit" className="btn orange border-orange">Place Order</button>
             </div>
           </form>
