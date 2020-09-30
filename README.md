@@ -33,7 +33,9 @@ Try the application live at [https://wickedsales.michaeljohnpoole.com/](https://
 
 1. Clone the repository.
 ```
-git clone https://github.com/MichaelPooleLF/api-hackathon.git
+git clone https://github.com/MichaelPooleLF/wicked-sales-js
 ```
-2. Open the file through a code editor and open default browser from ```index.html``` file.
-  
+2. Install the dependencies.
+```
+npm install
+```
