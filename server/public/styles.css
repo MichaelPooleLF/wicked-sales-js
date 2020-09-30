@@ -1,10 +1,9 @@
 body {
   font-family: sans-serif;
-  background-image: url(/images/purple-smoke.jpg);
+  /* background-image: url(/images/purple-smoke.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
-
 
 h1, h2, h3, h4, h5 {
   font-family: "Berkshire Swash";
@@ -117,6 +116,12 @@ header {
   box-shadow: 0 0 20px #985FBA;
 }
 
+.bg-img {
+  background-image: url(/images/purple-smoke.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
 @media only screen and (max-width: 750px) {
   .cart {
     justify-content: center;
@@ -124,6 +129,10 @@ header {
 
   .justify-center-sm {
     justify-content: center;
+  }
+
+  .bg-img {
+    background-size: cover;
   }
 }
 
@@ -138,5 +147,9 @@ header {
 
   .notice .border-orange {
     font-size: 1rem;
+  }
+
+  .bg-img {
+    background-size: cover;
   }
 }
