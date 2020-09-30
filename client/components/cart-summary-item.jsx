@@ -14,7 +14,7 @@ function CartSummaryItem(props) {
     cart.push(
       <div className="col-12 card my-3" key={element.cartItemId}>
         <div className="row no-gutters my-3">
-          <div className="col-4">
+          <div className="col-md-12 col-lg-4">
             <img className="card-img image" src={element.image} alt="" />
           </div>
           <div className="col-8">

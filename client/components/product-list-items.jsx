@@ -8,8 +8,8 @@ function ProductListItem(props) {
   const productPrice = parseFloat(total).toFixed(2);
 
   return (
-    <div onClick={props.handleClick} className="col-4 mt-5 card-group" id={props.product.productId}>
-      <div className="card pointer">
+    <div onClick={props.handleClick} className="col-sm-12 col-md-4 mt-5 card-group" id={props.product.productId}>
+      <div className="card pointer bg-shadow">
         <div className="image">
           <img src={props.product.image} className="card-img-top"/>
         </div>

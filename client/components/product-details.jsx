@@ -43,14 +43,14 @@ class ProductDetails extends React.Component {
           <div className="container bg-light px-4 mt-5">
             <div className="row mb-3">
               <p onClick={this.handleClick} className="text-secondary back">{'< back to catalog'}</p>
-              <div className="col-4 details mt-5">
+              <div className="col-md-12 col-lg-4 details mt-5">
                 <img src={this.state.product.image}/>
               </div>
-              <div className="col-8 mt-5">
+              <div className="col-sm-8 mt-5">
                 <h1>{this.state.product.name}</h1>
                 <h3>${productPrice}</h3>
                 <p>{this.state.product.shortDescription}</p>
-                <button onClick={this.handleAddClick} className="btn btn-primary">Add to Cart</button>
+                <button onClick={this.handleAddClick} className="btn bg-orange">Add to Cart</button>
               </div>
             </div>
             <div className="row">
