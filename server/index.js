@@ -113,7 +113,6 @@ app.post('/api/cart', (req, res, next) => {
             returning "cartId"
         `;
         return db.query(cartSQL)
-          // .then(result => res.json(result))
           .then(result => {
             const cartId = result.rows[0].cartId;
             return {
